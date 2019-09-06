@@ -1,0 +1,3 @@
+<?php 
+Template::render('navigationbar');
+?>

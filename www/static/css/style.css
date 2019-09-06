@@ -1,0 +1,76 @@
+body, html {
+  height: 100%;
+} 
+
+body {
+  font-family: 'Muli', sans-serif !important;
+}
+
+.page{
+    min-height:100%;
+    height: auto; 
+    background: #e3e3e3;
+}
+
+.landingpage-header{
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.landingpage-header > .card {
+
+  background: #011d39cf;
+
+}
+
+.landingpage-header > .card > .card-body> form{
+  background: #00000092;
+}
+
+
+footer{
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+.single-form-wrapper {
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.single-form {
+
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  .single-form .checkbox {
+    font-weight: 400;
+  }
+  .single-form .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .single-form .form-control:focus {
+    z-index: 2;
+  }
+  .single-form input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .single-form input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }

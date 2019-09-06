@@ -1,0 +1,50 @@
+version: "3.2"
+services:
+  apache:
+    build: './apache/'
+    container_name: 'webserver'
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "8080:80" #dev
+      #- "80:80" #prod
+      #- "443:443" #prod
+    volumes:
+      - ./../www/:/var/www/html/
+      - ./devop/log/apache2/:/var/log/apache2/
+      - ./devop/config/vhosts/:/etc/apache2/sites-enabled/
+      - ./devop/config/php/php.ini:/usr/local/etc/php/php.ini
+  mysql:
+    image: mysql:5.7
+    container_name: 'mysql'
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=app_user
+      - MYSQL_PASSWORD=app_password
+    volumes:
+      - ./devop/data/:/var/lib/mysql/
+      - ./devop/log/mysql/:/var/log/mysql/
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: 'offerta-phpmyadmin'
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"
+    volumes: 
+      - ./devop/sessions
+    networks:
+      - frontend
+      - backend
+networks:
+  frontend:
+  backend:
